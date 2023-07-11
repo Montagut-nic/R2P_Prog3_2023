@@ -76,4 +76,18 @@ class VentaCriptoAPI extends VentaCripto
         }
         return $response;
     }
+
+    public static function GuardarCSV($request, $response, $args)
+    {
+        $ordenamiento=$args['orden'];
+        $resultado = VentaCripto::GuardarVentasCSV($ordenamiento);
+        $response=$response->withHeader('Content-Type', 'application/csv; charset=UTF-8')
+            ->withHeader('Content-Disposition', 'attachment; filename="Ventas.csv"');
+        if($resultado['Estado']!='OK'){
+            $response->getBody()->write(json_encode($resultado));
+            $response=$response->withoutHeader('Content-Disposition')
+            ->withHeader('Content-Type', 'application/json');
+        }
+        return $response;
+    }
 }

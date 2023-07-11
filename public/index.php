@@ -69,9 +69,16 @@ $app->put('/criptomoneda/{id}[/]',\CriptoAPI::class . ':ModificarCripto')
 ->add(\UsuarioMiddleware::class . ':ValidarAdmin')
 ->add(\UsuarioMiddleware::class . ':ValidarUsuario');
 $app->get('/criptomoneda/descargar[/]', \CriptoAPI::class . ':GuardarCSV');
-$app->get('/logs/descargar[/]', \LogsAPI::class . ':GuardarCSV')
+$app->get('/criptomoneda/descargar/{id}[/]', \CriptoAPI::class . ':GuardarPDF');
+$app->get('/logs/descargar/CSV[/]', \LogsAPI::class . ':GuardarCSV')
 ->add(\UsuarioMiddleware::class . ':ValidarAdmin')
 ->add(\UsuarioMiddleware::class . ':ValidarUsuario');
-$app->get('/ventas/descargar/{orden}[/]', \VentaCriptoAPI::class . ':GuardarPDF');
+$app->get('/logs/descargar/PDF[/]', \LogsAPI::class . ':GuardarPDF')
+->add(\UsuarioMiddleware::class . ':ValidarAdmin')
+->add(\UsuarioMiddleware::class . ':ValidarUsuario');
+$app->get('/ventas/descargar/PDF/{orden}[/]', \VentaCriptoAPI::class . ':GuardarPDF');
+$app->get('/ventas/descargar/CSV/{orden}[/]', \VentaCriptoAPI::class . ':GuardarCSV');
+
+
 
 $app->run();

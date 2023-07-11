@@ -1,5 +1,7 @@
 <?php
 
+use Fpdf\Fpdf;
+
 class Cripto
 {
     public $precio;
@@ -143,10 +145,11 @@ class Cripto
         }
     }
 
-    public static function GuardarCriptosCSV(){
+    public static function GuardarCriptosCSV()
+    {
         try {
-            $ar_criptos=Cripto::Listar();
-            if(array_key_exists('Estado',$ar_criptos)){
+            $ar_criptos = Cripto::Listar();
+            if (array_key_exists('Estado', $ar_criptos)) {
                 return $ar_criptos;
             }
             $archivo = fopen('php://output', 'w');
@@ -158,6 +161,42 @@ class Cripto
                 $resultado = array("Estado" => "OK");
                 return $resultado;
             }
+        } catch (Exception $e) {
+            $mensaje = $e->getMessage();
+            $resultado = array("Estado" => "ERROR", "Mensaje" => "$mensaje");
+            return $resultado;
+        }
+    }
+
+    public static function GuardarCriptoPDF($id)
+    {
+        try {
+            $cripto = Cripto::BuscarPorId($id);
+            if (array_key_exists('Estado', $cripto)) {
+                return $cripto;
+            }
+
+            $pdf = new FPDF("P", "mm", "A4");
+            $pdf->AddPage();
+            $pdf->SetFont("Arial", "B", 12);
+            //ancho,largo,contenido,borde(T/F),salto de linea(T/F),alineacion(C=center/R=right)
+            $pdf->Cell(20, 10, 'ID', 1, 0, "C");
+            $pdf->Cell(30, 10, 'nombre', 1, 0, "C");
+            $pdf->Cell(30, 10, 'nacionalidad', 1, 0, "C");
+            $pdf->Cell(25, 10, 'precio', 1, 0, "C");
+            $pdf->Cell(50, 10, 'foto', 1, 1, "C");
+
+
+            $pdf->Cell(20, 10, $cripto['id'], 1, 0, "C");
+            $pdf->Cell(30, 10, $cripto['nombre'], 1, 0, "C");
+            $pdf->Cell(30, 10, $cripto['nacionalidad'], 1, 0, "C");
+            $pdf->Cell(25, 10, $cripto['precio'], 1, 0, "C");
+            $pdf->Cell(50, 10, $cripto['foto'], 1, 1, "C");
+
+
+            $pdf->Output("D", "Criptomoneda_$id.pdf", true);
+            $resultado = array("Estado" => "OK");
+            return $resultado;
         } catch (Exception $e) {
             $mensaje = $e->getMessage();
             $resultado = array("Estado" => "ERROR", "Mensaje" => "$mensaje");

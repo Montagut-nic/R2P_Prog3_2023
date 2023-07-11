@@ -1,4 +1,6 @@
 <?php
+use Fpdf\Fpdf;
+
 class Logs
 {
 
@@ -77,6 +79,40 @@ class Logs
                 $resultado = array("Estado" => "OK");
                 return $resultado;
             }
+        } catch (Exception $e) {
+            $mensaje = $e->getMessage();
+            $resultado = array("Estado" => "ERROR", "Mensaje" => "$mensaje");
+            return $resultado;
+        }
+    }
+
+    public static function GuardarLogsPDF()
+    {
+        try {
+            $ar_logs=Logs::Listar();
+            if (array_key_exists('Estado', $ar_logs)) {
+                return $ar_logs;
+            }
+
+            $pdf = new FPDF("P", "mm", "A4");
+            $pdf->AddPage();
+            $pdf->SetFont("Arial", "B", 12);
+            //ancho,largo,contenido,borde(T/F),salto de linea(T/F),alineacion(C=center/R=right)
+            $pdf->Cell(25, 10, 'ID usuario', 1, 0, "C");
+            $pdf->Cell(20, 10, 'ID cripto', 1, 0, "C");
+            $pdf->Cell(30, 10, 'accion', 1, 0, "C");
+            $pdf->Cell(30, 10, 'fecha', 1, 1, "C");
+
+            foreach ($ar_logs as $item) {
+                $pdf->Cell(25, 10, $item['id_usuario'], 1, 0, "C");
+                $pdf->Cell(20, 10, $item['id_cripto'], 1, 0, "C");
+                $pdf->Cell(30, 10, $item['accion'], 1, 0, "C");
+                $pdf->Cell(30, 10, $item['fecha_accion'], 1, 1, "C");
+            }
+
+            $pdf->Output("D", "RegistroLogs.pdf", true);
+            $resultado = array("Estado" => "OK");
+            return $resultado;
         } catch (Exception $e) {
             $mensaje = $e->getMessage();
             $resultado = array("Estado" => "ERROR", "Mensaje" => "$mensaje");

@@ -14,4 +14,17 @@ class LogsAPI extends Logs
         }
         return $response;
     }
+
+    public function GuardarPDF($request, $response, $args)
+    {
+        $resultado = Logs::GuardarLogsPDF();
+        $response = $response->withHeader('Content-Type', 'application/pdf; charset=UTF-8')
+            ->withHeader('Content-Disposition', 'attachment; filename="RegistroLogs.pdf"');
+        if ($resultado['Estado'] != 'OK') {
+            $response->getBody()->write(json_encode($resultado));
+            $response = $response->withoutHeader('Content-Disposition')
+                ->withHeader('Content-Type', 'application/json');
+        }
+        return $response;
+    }
 }

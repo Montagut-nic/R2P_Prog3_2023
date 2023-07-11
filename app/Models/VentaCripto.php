@@ -166,4 +166,33 @@ class VentaCripto
             return $resultado;
         }
     }
+
+    public static function GuardarVentasCSV($orden)
+    {
+        try {
+            $ventas = VentaCripto::TraerUltimoMes();
+            if(array_key_exists('Estado',$ventas)){
+                return $ventas;
+            }
+            if ($orden == 'asc') {
+                usort($ventas, 'self::sortFechaAsc');
+            }else{
+                usort($ventas, 'self::sortFechaDes');
+            }
+            $archivo = fopen('php://output', 'w');
+            if ($archivo != null) {
+                foreach ($ventas as $item) {
+                    fputcsv($archivo, $item);
+                }
+                fclose($archivo);
+                $resultado = array("Estado" => "OK");
+                return $resultado;
+            }
+        } catch (Exception $e) {
+            $mensaje = $e->getMessage();
+            $resultado = array("Estado" => "ERROR", "Mensaje" => "$mensaje");
+            return $resultado;
+        }
+    }
+
 }
