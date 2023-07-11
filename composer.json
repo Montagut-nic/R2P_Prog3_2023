@@ -1,0 +1,9 @@
+{
+    "require": {
+        "slim/slim": "^4.11",
+        "slim/psr7": "^1.6",
+        "firebase/php-jwt": "^6.8",
+        "fpdf/fpdf": "^1.86",
+        "selective/basepath": "^2.1"
+     }
+ }
