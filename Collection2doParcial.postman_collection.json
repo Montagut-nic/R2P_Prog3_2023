@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "d3913494-3bab-4e2c-88b9-5a8e6fa4e286",
+		"name": "Collection2doParcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "verificar user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mail",
+							"value": "nico@mail.com",
+							"type": "default"
+						},
+						{
+							"key": "tipo",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "clave",
+							"value": "admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/usuario/verificar/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"usuario",
+						"verificar",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwMjc0MDMsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.-ShwlWmYrysXM9tWh9GW8hw2vh1JNsiL1UIVAN5Hf4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mail",
+							"value": "mateo@mail.com",
+							"type": "default"
+						},
+						{
+							"key": "tipo",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "clave",
+							"value": "clave2",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/usuario/alta/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"usuario",
+						"alta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta cripto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwMjc0MDMsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.-ShwlWmYrysXM9tWh9GW8hw2vh1JNsiL1UIVAN5Hf4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "precio",
+							"value": "5000",
+							"type": "default"
+						},
+						{
+							"key": "nombre",
+							"value": "Argencoin",
+							"type": "default"
+						},
+						{
+							"key": "nacionalidad",
+							"value": "argentina",
+							"type": "default"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nicom/Pictures/Screenshots/Captura de pantalla 2023-07-10 192203.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/alta/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"alta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar criptos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/listar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar cripto nacion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/listar/estadounidense",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"listar",
+						"estadounidense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "traer cripto id (user)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwMjc0MDMsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.-ShwlWmYrysXM9tWh9GW8hw2vh1JNsiL1UIVAN5Hf4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/mostrar/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"mostrar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta venta (users)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwMjc0MDMsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.-ShwlWmYrysXM9tWh9GW8hw2vh1JNsiL1UIVAN5Hf4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_cripto",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "cantidad",
+							"value": "3",
+							"type": "default"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nicom/Pictures/Screenshots/Captura de pantalla 2023-07-10 204735.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/venta/alta/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"venta",
+						"alta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar ventas nacion (aleman) y fecha",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwMzk3NzcsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.pZTXi31osoG6Y0kr919wlw_6nwu-faovZvO_qcWAEMI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/ventas/alemana/10/7/2023/13/7/2023",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"ventas",
+						"alemana",
+						"10",
+						"7",
+						"2023",
+						"13",
+						"7",
+						"2023"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar compradores moneda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwNDk5MTAsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.5ChJ6saYCRa2pBdjtAaFGoYtjG3nGUaz8haniUKLfVE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/usuarios/compradores/eterium",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"usuarios",
+						"compradores",
+						"eterium"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Baja Cripto + Log",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwNDk5MTAsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.5ChJ6saYCRa2pBdjtAaFGoYtjG3nGUaz8haniUKLfVE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Cripto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwNDk5MTAsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.5ChJ6saYCRa2pBdjtAaFGoYtjG3nGUaz8haniUKLfVE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"bitcoin\",\r\n\"precio\":\"2000\",\r\n\"nacionalidad\":\"yankee\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "descargar csv criptos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwNDk5MTAsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.5ChJ6saYCRa2pBdjtAaFGoYtjG3nGUaz8haniUKLfVE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/criptomoneda/descargar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"criptomoneda",
+						"descargar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "descargar csv logs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODkwNDk5MTAsIm1haWwiOiJuaWNvQG1haWwuY29tIiwidGlwbyI6ImFkbWluIn0.5ChJ6saYCRa2pBdjtAaFGoYtjG3nGUaz8haniUKLfVE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/logs/descargar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"logs",
+						"descargar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "descargar ventas pdf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost/2doParcialP3/public/ventas/descargar/asc",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"2doParcialP3",
+						"public",
+						"ventas",
+						"descargar",
+						"asc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
