@@ -73,9 +73,7 @@ $app->get('/criptomoneda/descargar/{id}[/]', \CriptoAPI::class . ':GuardarPDF');
 $app->get('/logs/descargar/CSV[/]', \LogsAPI::class . ':GuardarCSV')
 ->add(\UsuarioMiddleware::class . ':ValidarAdmin')
 ->add(\UsuarioMiddleware::class . ':ValidarUsuario');
-$app->get('/logs/descargar/PDF[/]', \LogsAPI::class . ':GuardarPDF')
-->add(\UsuarioMiddleware::class . ':ValidarAdmin')
-->add(\UsuarioMiddleware::class . ':ValidarUsuario');
+$app->get('/logs/descargar/PDF[/]', \LogsAPI::class . ':GuardarPDF');
 $app->get('/ventas/descargar/PDF/{orden}[/]', \VentaCriptoAPI::class . ':GuardarPDF');
 $app->get('/ventas/descargar/CSV/{orden}[/]', \VentaCriptoAPI::class . ':GuardarCSV');
 
